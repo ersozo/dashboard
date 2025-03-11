@@ -40,14 +40,14 @@ def index(request):
     total_fail = 0
     total_quantity = 0
 
-    # Loop through each hour from 8:00 to 16:00 (8 AM to 4 PM)
-    for hour in range(8, 17):
+    # Loop through each hour from 8:00 to 15:00 (8 AM to 3 PM) - 8 rows total
+    for hour in range(8, 16):
         # Create datetime objects for start and end of the hour
         start_time = datetime.combine(selected_date, time(hour, 0, 0))
-        end_time = datetime.combine(selected_date, time(hour, 59, 59)) if hour < 16 else datetime.combine(selected_date, time(16, 0, 0))
+        end_time = datetime.combine(selected_date, time(hour, 59, 59))
 
         # Format for display with intervals
-        next_hour = hour + 1 if hour < 16 else hour
+        next_hour = hour + 1
 
         # Format hour values with leading zeros for consistency
         start_hour_fmt = f"{hour:02d}:00"
